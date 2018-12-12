@@ -72,3 +72,4 @@ streamingConnectionIdleTimeout: 4h0m0s
 syncFrequency: 1m0s
 volumeStatsAggPeriod: 1m0s
 authentication-token-webhook: true
+horizontal-pod-autoscaler-use-rest-clients: true
