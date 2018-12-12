@@ -1,0 +1,41 @@
+root@ubuntu-VirtualBox:~/metrics-server/deploy/1.8+# kubectl describe hpa
+Name:                                                  tomcat
+Namespace:                                             default
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 12 Dec 2018 14:38:26 +0530
+Reference:                                             Deployment/tomcat
+Metrics:                                               ( current / target )
+  resource memory on pods:                             <unknown> / 1000Mi
+  resource cpu on pods  (as a percentage of request):  <unknown> / 50%
+Min replicas:                                          3
+Max replicas:                                          5
+Deployment pods:                                       3 current / 3 desired
+Conditions:
+  Type           Status  Reason                   Message
+  ----           ------  ------                   -------
+  AbleToScale    True    SucceededGetScale        the HPA controller was able to get the target's current scale
+  ScalingActive  False   FailedGetResourceMetric  the HPA was unable to compute the replica count: missing request for cpu
+Events:
+  Type     Reason                        Age                  From                       Message
+  ----     ------                        ----                 ----                       -------
+  Warning  FailedComputeMetricsReplicas  85m (x7 over 87m)    horizontal-pod-autoscaler  failed to get cpu utilization: missing request for cpu
+  Warning  FailedGetResourceMetric       33m (x3 over 87m)    horizontal-pod-autoscaler  unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       28m (x234 over 87m)  horizontal-pod-autoscaler  missing request for cpu
+  Warning  FailedComputeMetricsReplicas  24m                  horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedGetResourceMetric       24m                  horizontal-pod-autoscaler  unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedComputeMetricsReplicas  23m (x2 over 24m)    horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       23m (x2 over 24m)    horizontal-pod-autoscaler  unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       23m                  horizontal-pod-autoscaler  missing request for cpu
+  Warning  FailedComputeMetricsReplicas  23m                  horizontal-pod-autoscaler  failed to get cpu utilization: missing request for cpu
+  Warning  FailedComputeMetricsReplicas  21m (x2 over 22m)    horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedGetResourceMetric       21m (x2 over 22m)    horizontal-pod-autoscaler  unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedGetResourceMetric       21m (x2 over 21m)    horizontal-pod-autoscaler  unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  21m (x2 over 21m)    horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  19m (x8 over 21m)    horizontal-pod-autoscaler  failed to get cpu utilization: missing request for cpu
+  Warning  FailedGetResourceMetric       17m (x17 over 21m)   horizontal-pod-autoscaler  missing request for cpu
+  Warning  FailedGetResourceMetric       12m (x2 over 13m)    horizontal-pod-autoscaler  unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  12m (x2 over 13m)    horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  10m (x10 over 12m)   horizontal-pod-autoscaler  failed to get cpu utilization: missing request for cpu
+  Warning  FailedGetResourceMetric       3m7s (x39 over 12m)  horizontal-pod-autoscaler  missing request for cpu
+root@ubuntu-VirtualBox:~/metrics-server/deploy/1.8+#
